@@ -23,14 +23,15 @@ app.put("/", (req, res) => {
         .catch(error => console.log(error))
 })
 app.post("/telegram", (req, res) => {
-    const { name, email, text, tel } = req.body
+    const { name, lastname, email, text, tel } = req.body
     console.log(name)
     console.log(email)
     console.log(text)
     console.log(tel)
+    console.log(lastname)
 
     const chatid = process.env.CHATID
-    const telegramMessage = `Yangi Xabar:\nIsmi: ${name} \nEmail: ${email} \nMa'lumot: ${text} \nTel Raqami ${tel}`;
+    const telegramMessage = `Yangi Xabar:\nFirstname: ${name} \nLastname:${lastname} \nEmail: ${email} \nMa'lumot: ${text} \nTel Raqami ${tel}`;
 
     bot.sendMessage(chatid, telegramMessage)
         .then(res => console.log("jo'natildi"))
